@@ -9,8 +9,6 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 export class CadastroFormComponent implements OnInit {
   form!: FormGroup;
 
-  constructor() {}
-
   ngOnInit(): void {
     this.form = new FormGroup({
       nome: new FormControl('', [Validators.required]),
@@ -55,17 +53,28 @@ export class CadastroFormComponent implements OnInit {
   get estado() {
     return this.form.get('estado')!;
   }
+
   submit() {
     if (this.form.invalid) {
       return;
     }
-
-    this.criarJson();
+    console.log(this.form.value);
   }
-  criarJson() {
-    console.log('criar Json');
+}
+
+/*
+  }
+   async criarJson(usuario:Usuario){
+    const formData = FormData();
+    formData.append('nome', usuario.[(this.nome)])
+    formData.append('sobrenome', usuario.(this.sobrenome))
+    formData.append('nome', usuario.(this.nome))
+    formData.append('nome', usuario.(this.nome))
+    formData.append('nome', usuario.(this.nome))
   }
   //async enviarBanco() {
-  // await this.usuario.criarUsuario()
+   // await this.usuario.criarUsuario()
   //}
-}
+
+
+*/
