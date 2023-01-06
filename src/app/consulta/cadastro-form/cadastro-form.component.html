@@ -1,0 +1,93 @@
+<mat-card class="container">
+  <mat-toolbar>
+    <span>Cadastro</span>
+  </mat-toolbar>
+  <form (ngSubmit)="submit()" [formGroup]="form" #formDir="ngForm">
+    <input type="hidden" formControlName="id" />
+    <div class="grupo-campo">
+      <label for="nome">Nome:</label>
+      <div *ngIf="nome.invalid && formDir.submitted" class="validation-error">
+        <p *ngIf="nome.errors?.['required']">Campo obrigatório.</p>
+      </div>
+      <input type="text" formControlName="nome" required />
+    </div>
+    <div class="grupo-campo">
+      <label for="sobrenome">Sobrenome:</label>
+      <div
+        *ngIf="sobrenome.invalid && formDir.submitted"
+        class="validation-error"
+      >
+        <p *ngIf="sobrenome.errors?.['required']">Campo obrigatório.</p>
+      </div>
+      <input type="text" formControlName="sobrenome" required />
+    </div>
+    <div class="grupo-campo">
+      <label for="cpf">CPf:</label>
+      <div *ngIf="cpf.invalid && formDir.submitted" class="validation-error">
+        <p *ngIf="cpf.errors?.['required']">Campo obrigatório.</p>
+      </div>
+      <input type="text" formControlName="cpf" required />
+    </div>
+    <div class="grupo-campo">
+      <label for="data_nascimento">Data de Nascimento:</label>
+      <div
+        *ngIf="data_nascimento.invalid && formDir.submitted"
+        class="validation-error"
+      >
+        <p *ngIf="data_nascimento.errors?.['required']">Campo obrigatório.</p>
+      </div>
+      <input type="text" formControlName="data_nascimento" required />
+    </div>
+    <div class="grupo-campo">
+      <label for="cep">Cep:</label>
+      <div *ngIf="cep.invalid && formDir.submitted" class="validation-error">
+        <p *ngIf="cep.errors?.['required']">Campo obrigatório.</p>
+      </div>
+      <input type="text" formControlName="cep" required />
+    </div>
+    <div class="grupo-campo">
+      <label for="endereco">Endereço:</label>
+      <div
+        *ngIf="endereco.invalid && formDir.submitted"
+        class="validation-error"
+      >
+        <p *ngIf="endereco.errors?.['required']">Campo obrigatório.</p>
+      </div>
+      <input type="text" formControlName="endereco" required />
+    </div>
+    <div class="grupo-campo">
+      <label for="numero">Número:</label>
+      <div *ngIf="numero.invalid && formDir.submitted" class="validation-error">
+        <p *ngIf="numero.errors?.['required']">Campo obrigatório.</p>
+      </div>
+      <input type="text" formControlName="numero" required />
+    </div>
+    <div class="grupo-campo">
+      <label for="complemento">Complemento:</label>
+      <div
+        *ngIf="complemento.invalid && formDir.submitted"
+        class="validation-error"
+      >
+        <p *ngIf="complemento.errors?.['required']">Campo obrigatório.</p>
+      </div>
+      <input type="text" formControlName="complemento" required />
+    </div>
+    <div class="grupo-campo">
+      <label for="cidade">Cidade:</label>
+      <div *ngIf="cidade.invalid && formDir.submitted" class="validation-error">
+        <p *ngIf="cidade.errors?.['required']">Campo obrigatório.</p>
+      </div>
+      <input type="text" formControlName="cidade" required />
+    </div>
+    <div class="grupo-campo">
+      <label for="estado">Estado:</label>
+      <div *ngIf="estado.invalid && formDir.submitted" class="validation-error">
+        <p *ngIf="estado.errors?.['required']">Campo obrigatório.</p>
+      </div>
+      <input type="text" formControlName="estado" required />
+    </div>
+    <div class="container-right">
+      <input type="submit" value="Cadastrar" (onSubmit)="criarJson()" />
+    </div>
+  </form>
+</mat-card>

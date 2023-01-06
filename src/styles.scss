@@ -1,1 +1,24 @@
-/* You can add global styles to this file, and also import other style files */
+.container{
+  margin: 20px;
+}
+form {
+  width: 450px;
+  margin: 0 auto;
+}
+
+.grupo-campo {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 15px;
+}
+
+.grupo-campo label {
+  color: white;
+}
+
+.grupo-campo input{
+  padding: 5px;
+}
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

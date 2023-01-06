@@ -1,0 +1,22 @@
+.displayNav{
+  display: flex;
+  justify-content: space-around;
+  justify-items: center;
+  align-items: center;
+}
+.navList{
+  display: flex;
+  list-style: none;
+}
+.navItem{
+  margin-left: 20px;
+  text-decoration: none;
+}
+.navItem a{
+  text-decoration: none;
+  color: #fff;
+}
+.navItem a:hover{
+  text-decoration: none;
+  color: #303030;
+}
