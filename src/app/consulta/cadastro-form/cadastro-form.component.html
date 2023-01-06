@@ -26,7 +26,7 @@
       <div *ngIf="cpf.invalid && formDir.submitted" class="validation-error">
         <p *ngIf="cpf.errors?.['required']">Campo obrigatório.</p>
       </div>
-      <input type="text" formControlName="cpf" required />
+      <input type="number" formControlName="cpf" required />
     </div>
     <div class="grupo-campo">
       <label for="data_nascimento">Data de Nascimento:</label>
@@ -36,14 +36,14 @@
       >
         <p *ngIf="data_nascimento.errors?.['required']">Campo obrigatório.</p>
       </div>
-      <input type="text" formControlName="data_nascimento" required />
+      <input type="date" formControlName="data_nascimento" required />
     </div>
     <div class="grupo-campo">
       <label for="cep">Cep:</label>
       <div *ngIf="cep.invalid && formDir.submitted" class="validation-error">
         <p *ngIf="cep.errors?.['required']">Campo obrigatório.</p>
       </div>
-      <input type="text" formControlName="cep" required />
+      <input type="number" formControlName="cep" required />
     </div>
     <div class="grupo-campo">
       <label for="endereco">Endereço:</label>
