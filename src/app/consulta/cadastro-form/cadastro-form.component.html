@@ -1,103 +1,52 @@
 <mat-card class="container">
-  <form #form="ngForm" (ngSubmit)="salvar(form)">
-    <div class="grupo-campo">
-      <label>cpf:</label>
-      <input
-        type="number"
-        name="cpf"
-        id="cpf"
-        required
-        [(ngModel)]="data.cpf"
-      />
-    </div>
-    <div class="grupo-campo">
-      <label>nome:</label>
-      <input
-        type="text"
-        name="nome"
-        id="nome"
-        required
-        [(ngModel)]="data.nome"
-      />
-    </div>
-    <div class="grupo-campo">
+  <mat-toolbar>
+    <span>Cadastro</span>
+  </mat-toolbar>
+  <form [formGroup]="formulario">
+    <mat-form-field class="largura-maxima">
+      <label>Nome:</label>
+      <input formControlName="nome" matInput />
+    </mat-form-field>
+    <mat-form-field class="largura-maxima">
       <label>sobrenome:</label>
-      <input
-        type="text"
-        name="sobrenome"
-        id="sobrenome"
-        required
-        [(ngModel)]="data.sobrenome"
-      />
-    </div>
-    <div class="grupo-campo">
+      <input formControlName="sobrenome" matInput />
+    </mat-form-field>
+    <mat-form-field class="largura-maxima">
+      <label>cpf:</label>
+      <input formControlName="cpf" matInput />
+    </mat-form-field>
+    <mat-form-field class="largura-maxima">
       <label>data_nascimento:</label>
-      <input
-        type="date"
-        name="data_nascimento"
-        id="data_nascimento"
-        required
-        [(ngModel)]="data.data_nascimento"
-      />
-    </div>
-    <div class="grupo-campo">
+      <input formControlName="data_nascimento" matInput />
+    </mat-form-field>
+    <mat-form-field class="largura-maxima">
       <label>cep:</label>
-      <input
-        type="number"
-        name="cep"
-        id="cep"
-        required
-        [(ngModel)]="data.cep"
-      />
-    </div>
-    <div class="grupo-campo">
+      <input formControlName="cep" matInput />
+    </mat-form-field>
+    <mat-form-field class="largura-maxima">
       <label>endereco:</label>
-      <input
-        type="text"
-        name="endereco"
-        id="endereco"
-        required
-        [(ngModel)]="data.endereco"
-      />
-    </div>
-    <div class="grupo-campo">
+      <input formControlName="endereco" matInput />
+    </mat-form-field>
+    <mat-form-field class="largura-maxima">
       <label>numero:</label>
-      <input
-        type="text"
-        name="numero"
-        id="numero"
-        required
-        [(ngModel)]="data.numero"
-      />
-    </div>
-    <div class="grupo-campo">
+      <input formControlName="numero" matInput />
+    </mat-form-field>
+    <mat-form-field class="largura-maxima">
       <label>complemento:</label>
-      <input
-        type="text"
-        name="complemento"
-        id="complemento"
-        required
-        [(ngModel)]="data.complemento"
-      />
-    </div>
-    <div class="grupo-campo">
+      <input formControlName="complemento" matInput />
+    </mat-form-field>
+    <mat-form-field class="largura-maxima">
       <label>cidade:</label>
-      <input
-        type="text"
-        name="cidade"
-        id="cidade"
-        required
-        [(ngModel)]="data.cidade"
-      />
-    </div>
-    <div class="grupo-campo">
+      <input formControlName="cidade" matInput />
+    </mat-form-field>
+    <mat-form-field class="largura-maxima">
       <label>estado:</label>
-      <input
-        type="text"
-        name="estado"
-        id="estado"
-        required
-        [(ngModel)]="data.estado"
-      />
-    </div></form
-></mat-card>
+      <input formControlName="estado" matInput />
+    </mat-form-field>
+  </form>
+  <mat-card-actions class="container-right">
+    <button mat-raised-button color="primary" (click)="onSubmit()">
+      Cadastrar
+    </button>
+  </mat-card-actions>
+</mat-card>

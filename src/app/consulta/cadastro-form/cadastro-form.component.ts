@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { NgForm } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
-import { Usuario } from './../model/usuario';
 import { UsuarioService } from './../services/usuario.service';
 
 @Component({
@@ -10,16 +9,41 @@ import { UsuarioService } from './../services/usuario.service';
   styleUrls: ['./cadastro-form.component.scss'],
 })
 export class CadastroFormComponent implements OnInit {
-  constructor(private usuarioService: UsuarioService) {}
+  formulario: FormGroup;
 
-  data!: Usuario;
+  constructor(
+    private formBuilder: FormBuilder,
+    private usuarioService: UsuarioService
+  ) {
+    this.formulario = this.formBuilder.group({
+      nome: ['', [Validators.required, Validators.minLength(3)]],
+      sobrenome: ['', [Validators.required, Validators.minLength(3)]],
+      cpf: ['', [Validators.required, Validators.maxLength(11)]],
+      data_nascimento: ['', [Validators.required]],
+      cep: ['', [Validators.required, Validators.maxLength(8)]],
+      endereco: ['', [Validators.required]],
+      numero: ['', [Validators.required]],
+      complemento: ['', [Validators.required]],
+      cidade: ['', [Validators.required]],
+      estado: ['', [Validators.required, Validators.maxLength(2)]],
+    });
+  }
+
+  onSubmit() {
+    if (this.formulario.valid) {
+      this.usuarioService.salvar(this.formulario.value);
+    }
+    console.log(this.formulario.value);
+  }
+
+  //data!: Usuario;
 
   ngOnInit(): void {
-    this.data = new Usuario();
+    //this.data = new Usuario();
   }
-  salvar(form: NgForm) {
+  /*salvar(form: NgForm) {
     if (form.valid) {
       this.usuarioService.salvar(this.data);
     }
-  }
+  }*/
 }
