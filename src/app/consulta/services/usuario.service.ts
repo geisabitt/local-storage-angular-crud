@@ -1,4 +1,3 @@
-import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
 import { Usuario } from '../model/usuario';
@@ -7,10 +6,8 @@ import { Usuario } from '../model/usuario';
   providedIn: 'root',
 })
 export class UsuarioService {
-  private readonly API = 'http://localhost:5000/data';
-
-  constructor(private httpClient: HttpClient) {}
-  listaUsuario() {
-    return this.httpClient.get<Usuario[]>(this.API);
+  constructor() {}
+  salvar(usuario: Usuario) {
+    localStorage.setItem(usuario.cpf, JSON.stringify(usuario));
   }
 }

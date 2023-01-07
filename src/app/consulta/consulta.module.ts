@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AppMaterialModule } from '../shared/app-material/app-material.module';
 import { CadastroFormComponent } from './cadastro-form/cadastro-form.component';
@@ -14,6 +14,7 @@ import { ConsultaComponent } from './consulta/consulta.component';
     ConsultaRoutingModule,
     AppMaterialModule,
     ReactiveFormsModule,
+    FormsModule,
   ],
 })
 export class ConsultaModule {}
