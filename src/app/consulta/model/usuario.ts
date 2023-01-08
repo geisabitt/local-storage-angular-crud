@@ -1,9 +1,9 @@
 export interface Usuario {
   nome: string;
   sobrenome: string;
-  cpf: string;
+  cpf: number;
   data_nascimento: string;
-  cep: string;
+  cep: number;
   endereco: string;
   numero: string;
   complemento: string;

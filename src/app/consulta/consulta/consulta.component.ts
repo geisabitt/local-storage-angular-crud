@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 
-import { LerUsuario } from '../model/lerUsuario';
+import { Usuario } from '../model/usuario';
+import { UsuarioService } from './../services/usuario.service';
 
 @Component({
   selector: 'app-consulta',
@@ -8,7 +9,9 @@ import { LerUsuario } from '../model/lerUsuario';
   styleUrls: ['./consulta.component.scss'],
 })
 export class ConsultaComponent {
-  lerUsuario: LerUsuario[] = [];
+  usuario: Usuario[] = [];
   displayedColumns = ['nome', 'cpf', 'data_nascimento', 'endereco'];
-  constructor() {}
+  constructor(private usuarioService: UsuarioService) {
+    this.usuario = this.usuarioService.consultar();
+  }
 }

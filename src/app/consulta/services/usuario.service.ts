@@ -8,6 +8,14 @@ import { Usuario } from '../model/usuario';
 export class UsuarioService {
   constructor() {}
   salvar(usuario: Usuario) {
-    localStorage.setItem(usuario.cpf, JSON.stringify(usuario));
+    localStorage.setItem(usuario.cpf.toString(), JSON.stringify(usuario));
+  }
+  consultar(): Array<Usuario> {
+    let usuarios: Usuario[] = [];
+    console.log(localStorage.length);
+    for (let i = 0; i < localStorage.length; i++) {
+      usuarios.push(JSON.parse(localStorage.getItem(localStorage.key(i)!)!));
+    }
+    return usuarios;
   }
 }

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
+import { LerUsuario } from './../model/lerUsuario';
 import { UsuarioService } from './../services/usuario.service';
 
 @Component({
@@ -10,6 +11,7 @@ import { UsuarioService } from './../services/usuario.service';
 })
 export class CadastroFormComponent implements OnInit {
   formulario: FormGroup;
+  data!: LerUsuario;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -29,13 +31,6 @@ export class CadastroFormComponent implements OnInit {
     });
   }
 
-  onSubmit() {
-    if (this.formulario.valid) {
-      this.usuarioService.salvar(this.formulario.value);
-    }
-    console.log(this.formulario.value);
-  }
-
   //data!: Usuario;
 
   ngOnInit(): void {
@@ -46,4 +41,11 @@ export class CadastroFormComponent implements OnInit {
       this.usuarioService.salvar(this.data);
     }
   }*/
+
+  onSubmit() {
+    if (this.formulario.valid) {
+      this.usuarioService.salvar(this.formulario.value);
+    }
+    console.log(this.formulario.value);
+  }
 }
