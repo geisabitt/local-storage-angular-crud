@@ -52,12 +52,32 @@ enviarParaOLocalStorage(objNovoEstruturado){
 
 }*/
 
-  consultar(): Array<Usuario> {
-    let usuarios: Usuario[] = [];
+  consultar(resgateUsuario: Usuario): Array<Usuario> {
+    let dataResgate = {
+      dados_pessoais: {
+        nome: resgateUsuario.nome,
+        sobrenome: resgateUsuario.sobrenome,
+        data_nascimento: resgateUsuario.data_nascimento,
+        cpf: resgateUsuario.cpf,
+      },
+      endereco: {
+        cep: resgateUsuario.cep,
+        endereco: resgateUsuario.endereco,
+        numero: resgateUsuario.numero,
+        complemento: resgateUsuario.complemento,
+        cidade: resgateUsuario.cidade,
+        estado: resgateUsuario.estado,
+      },
+    };
+    let dataResgateObjeto = JSON.parse(dataResgate);
     console.log(localStorage.length);
     for (let i = 0; i < localStorage.length; i++) {
-      usuarios.push(JSON.parse(localStorage.getItem(localStorage.key(i)!)!));
+      dataResgate.push(JSON.parse(localStorage.getItem(localStorage.key(i)!)!));
     }
-    return usuarios;
+    return dataResgate;
+  }
+  resgatar() {
+    const dataResgate = JSON.parse(this.consultar);
+    return dataResgate;
   }
 }
