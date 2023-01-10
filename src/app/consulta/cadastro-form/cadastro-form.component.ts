@@ -43,9 +43,12 @@ export class CadastroFormComponent implements OnInit {
   }*/
 
   onSubmit() {
-    if (this.formulario.valid) {
-      this.usuarioService.salvar2(this.formulario.value);
+    if (this.formulario.invalid) {
+      alert('confira se preencheu os todos dados e de forma correta');
+      return;
+    } else {
+      this.usuarioService.salvar(this.formulario.value);
+      this.formulario.reset();
     }
-    console.log(this.formulario.value);
   }
 }
