@@ -36,11 +36,11 @@
     <ng-container matColumnDef="endereco">
       <th mat-header-cell *matHeaderCellDef>endereco</th>
       <td mat-cell *matCellDef="let usuarios">
-        {{ usuarios.endereco }} - {{ usuarios.numero }}/{{
+        {{ usuarios.endereco.endereco }} - {{ usuarios.endereco.numero }}/{{
           usuarios.complemento
         }}
-        - {{ usuarios.cidade }}/{{ usuarios.estado }} -
-        {{ usuarios.cep }}
+        - {{ usuarios.endereco.cidade }}/{{ usuarios.endereco.estado }} -
+        {{ usuarios.endereco.cep }}
       </td>
     </ng-container>
 
