@@ -3,7 +3,7 @@
     <span>Consulta</span>
   </mat-toolbar>
 
-  <table mat-table [dataSource]="usuario" class="mat-elevation-z8">
+  <table mat-table [dataSource]="lerUsuarios" class="mat-elevation-z8">
     <!--- Note that these columns can be defined in any order.
           The actual rendered columns are set as a property on the row definition" -->
 
@@ -11,8 +11,8 @@
     <ng-container matColumnDef="nome">
       <th mat-header-cell *matHeaderCellDef>nome</th>
       <td mat-cell *matCellDef="let usuarios">
-        {{ usuarios.nome }}
-        {{ usuarios.sobrenome }}
+        {{ usuarios.data.dados_pessoais.nome }}
+        {{ usuarios.data.dados_pessoais.sobrenome }}
       </td>
     </ng-container>
 
@@ -20,7 +20,7 @@
     <ng-container matColumnDef="cpf">
       <th mat-header-cell *matHeaderCellDef>cpf</th>
       <td mat-cell *matCellDef="let usuarios">
-        {{ usuarios.cpf }}
+        {{ usuarios.data.dados_pessoais.cpf }}
       </td>
     </ng-container>
 
@@ -28,7 +28,7 @@
     <ng-container matColumnDef="data_nascimento">
       <th mat-header-cell *matHeaderCellDef>data_nascimento</th>
       <td mat-cell *matCellDef="let usuarios">
-        {{ usuarios.data_nascimento }}
+        {{ usuarios.data.dados_pessoais.data_nascimento }}
       </td>
     </ng-container>
 
@@ -36,11 +36,15 @@
     <ng-container matColumnDef="endereco">
       <th mat-header-cell *matHeaderCellDef>endereco</th>
       <td mat-cell *matCellDef="let usuarios">
-        {{ usuarios.endereco.endereco }} - {{ usuarios.endereco.numero }}/{{
-          usuarios.complemento
+        {{ usuarios.data.endereco.endereco }} -
+        {{ usuarios.data.endereco.numero }}/{{
+          usuarios.data.endereco.complemento
         }}
-        - {{ usuarios.endereco.cidade }}/{{ usuarios.endereco.estado }} -
-        {{ usuarios.endereco.cep }}
+        - {{ usuarios.data.endereco.cidade }}/{{
+          usuarios.data.endereco.estado
+        }}
+        -
+        {{ usuarios.data.endereco.cep }}
       </td>
     </ng-container>
 
