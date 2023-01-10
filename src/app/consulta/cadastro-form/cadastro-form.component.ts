@@ -44,7 +44,7 @@ export class CadastroFormComponent implements OnInit {
 
   onSubmit() {
     if (this.formulario.valid) {
-      this.usuarioService.salvar(this.formulario.value);
+      this.usuarioService.salvar2(this.formulario.value);
     }
     console.log(this.formulario.value);
   }

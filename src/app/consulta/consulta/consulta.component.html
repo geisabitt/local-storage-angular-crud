@@ -3,7 +3,7 @@
     <span>Consulta</span>
   </mat-toolbar>
 
-  <table mat-table [dataSource]="lerUsuario" class="mat-elevation-z8">
+  <table mat-table [dataSource]="usuario" class="mat-elevation-z8">
     <!--- Note that these columns can be defined in any order.
           The actual rendered columns are set as a property on the row definition" -->
 
@@ -11,7 +11,7 @@
     <ng-container matColumnDef="nome">
       <th mat-header-cell *matHeaderCellDef>nome</th>
       <td mat-cell *matCellDef="let usuarios">
-        {{ usuarios.dados_pessoais }}
+        {{ usuarios.nome }}
         {{ usuarios.sobrenome }}
       </td>
     </ng-container>
@@ -20,7 +20,7 @@
     <ng-container matColumnDef="cpf">
       <th mat-header-cell *matHeaderCellDef>cpf</th>
       <td mat-cell *matCellDef="let usuarios">
-        {{ usuarios.cpf }}
+        {{ usuarios.data.dados_pessoais.cpf }}
       </td>
     </ng-container>
 
@@ -28,7 +28,7 @@
     <ng-container matColumnDef="data_nascimento">
       <th mat-header-cell *matHeaderCellDef>data_nascimento</th>
       <td mat-cell *matCellDef="let usuarios">
-        {{ usuarios.data_nascimento }}
+        {{ usuarios.data.dados_pessoais.data_nascimento }}
       </td>
     </ng-container>
 
@@ -36,11 +36,11 @@
     <ng-container matColumnDef="endereco">
       <th mat-header-cell *matHeaderCellDef>endereco</th>
       <td mat-cell *matCellDef="let usuarios">
-        {{ usuarios.endereco.endereco }} - {{ usuarios.endereco.numero }}/{{
+        {{ usuarios.endereco }} - {{ usuarios.numero }}/{{
           usuarios.complemento
         }}
-        - {{ usuarios.endereco.cidade }}/{{ usuarios.estado }} -
-        {{ usuarios.endereco.cep }}
+        - {{ usuarios.cidade }}/{{ usuarios.estado }} -
+        {{ usuarios.cep }}
       </td>
     </ng-container>
 
