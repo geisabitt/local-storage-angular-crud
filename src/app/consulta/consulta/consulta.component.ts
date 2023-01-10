@@ -12,6 +12,6 @@ export class ConsultaComponent {
   usuario: Usuario[] = [];
   displayedColumns = ['nome', 'cpf', 'data_nascimento', 'endereco'];
   constructor(private usuarioService: UsuarioService) {
-    this.usuario = this.usuarioService.consultar();
+    this.usuario = this.usuarioService.consultarFuncinando();
   }
 }

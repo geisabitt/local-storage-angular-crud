@@ -7,6 +7,7 @@ import { Usuario } from '../model/usuario';
 })
 export class UsuarioService {
   constructor() {}
+
   salvar(usuario: Usuario) {
     const data = {
       dados_pessoais: {
@@ -25,59 +26,49 @@ export class UsuarioService {
       },
     };
     localStorage.setItem(usuario.cpf.toString(), JSON.stringify(data));
+    return data;
   }
 
-  /*estruturardado(usuarioEstruturado: Usuario){
-     const data ={
-      dados_pessoais:{
-        nome: usuarioEstruturado.nome,
-        sobrenome: usuarioEstruturado.sobrenome,
-        data_nascimento: usuarioEstruturado.data_nascimento,
-        cpf: usuarioEstruturado.cpf
-      },
-      endereco:{
-        cep: usuarioEstruturado.cep,
-        endereco: usuarioEstruturado.endereco,
-        numero: usuarioEstruturado.numero,
-        complemento: usuarioEstruturado.complemento,
-        cidade: usuarioEstruturado.cidade,
-        estado: usuarioEstruturado.estado
-      }
-     }
-     return data
-  }
-
-  objNovoEstruturado = .this.estruturardado(: Array<any>): Array<any> {}
-enviarParaOLocalStorage(objNovoEstruturado){
-
-}*/
-
-  consultar(resgateUsuario: Usuario): Array<Usuario> {
-    let dataResgate = {
-      dados_pessoais: {
-        nome: resgateUsuario.nome,
-        sobrenome: resgateUsuario.sobrenome,
-        data_nascimento: resgateUsuario.data_nascimento,
-        cpf: resgateUsuario.cpf,
-      },
-      endereco: {
-        cep: resgateUsuario.cep,
-        endereco: resgateUsuario.endereco,
-        numero: resgateUsuario.numero,
-        complemento: resgateUsuario.complemento,
-        cidade: resgateUsuario.cidade,
-        estado: resgateUsuario.estado,
-      },
-    };
-    let dataResgateObjeto = JSON.parse(dataResgate);
+  //consulta dos dados que está funcionando quando os itens estão em linha e não sao objetos complexos
+  consultarFuncinando(): Array<Usuario> {
+    let usuarios: Usuario[] = [];
     console.log(localStorage.length);
     for (let i = 0; i < localStorage.length; i++) {
-      dataResgate.push(JSON.parse(localStorage.getItem(localStorage.key(i)!)!));
+      usuarios.push(JSON.parse(localStorage.getItem(localStorage.key(i)!)!));
     }
-    return dataResgate;
+    return usuarios;
   }
-  resgatar() {
-    const dataResgate = JSON.parse(this.consultar);
-    return dataResgate;
+  // Final da consulta que está funcionando
+
+  consultarTeste3() {
+    let myDate = localStorage.getItem('dados_pessoais_endereco');
+    myDate = JSON.parse(myDate!);
+    return myDate;
+  }
+
+  consultarTeste2() {
+    let myDate = localStorage.getItem('dados_pessoais_endereco');
+    myDate = JSON.parse(myDate!);
+    return myDate;
+  }
+
+  consultarTeste1() {
+    const getDadosPessoais = JSON.parse(
+      localStorage.getItem('dados_pessoais')!
+    );
+    const getEndereco = JSON.parse(localStorage.getItem('endereco')!);
+
+    let dataResgate = { getDadosPessoais, getEndereco };
+
+    console.log(localStorage.length);
+    for (let i = 0; i < localStorage.length; i++) {
+      dataResgate.getDadosPessoais.push(
+        JSON.parse(localStorage.getItem(localStorage.key(i)!)!)
+      );
+      dataResgate.getEndereco.push(
+        JSON.parse(localStorage.getItem(localStorage.key(i)!)!)
+      );
+    }
+    return getDadosPessoais && getEndereco;
   }
 }
