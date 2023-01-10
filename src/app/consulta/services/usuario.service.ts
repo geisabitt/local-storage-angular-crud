@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 
+import { LerUsuario } from '../model/lerUsuario';
 import { Usuario } from '../model/usuario';
 
 @Injectable({
@@ -36,14 +37,19 @@ export class UsuarioService {
     for (let i = 0; i < localStorage.length; i++) {
       usuarios.push(JSON.parse(localStorage.getItem(localStorage.key(i)!)!));
     }
+    console.log(usuarios);
     return usuarios;
   }
   // Final da consulta que está funcionando
 
-  consultarTeste3() {
-    let myDate = localStorage.getItem('dados_pessoais_endereco');
-    myDate = JSON.parse(myDate!);
-    return myDate;
+  consultarTeste3(): Array<LerUsuario> {
+    let lerUsuarios: LerUsuario[] = [];
+    console.log(localStorage.length);
+    for (let i = 0; i < localStorage.length; i++) {
+      lerUsuarios.push(JSON.parse(localStorage.getItem(localStorage.key(i)!)!));
+    }
+    console.log(lerUsuarios);
+    return lerUsuarios;
   }
 
   consultarTeste2() {
