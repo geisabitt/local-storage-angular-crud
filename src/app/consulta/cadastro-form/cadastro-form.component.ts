@@ -77,13 +77,13 @@ export class CadastroFormComponent implements OnInit {
   onSubmit() {
     if (this.formulario.invalid) {
       this.messagesService.add(
-        'Confira se preencheu todos os dados de forma correta'
+        'Confira se preencheu todos os dados de forma correta.'
       );
       return;
     } else {
       this.usuarioService.salvar(this.formulario.value);
       this.formulario.reset();
-      this.messagesService.add('Dados cadastrados com sucesso');
+      this.messagesService.add('Dados cadastrados com sucesso.');
     }
   }
 }
