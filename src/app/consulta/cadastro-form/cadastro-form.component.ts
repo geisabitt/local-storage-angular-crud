@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
+import { MessagesService } from '../../messages/services/messages.service';
 import { LerUsuario } from './../model/lerUsuario';
 import { UsuarioService } from './../services/usuario.service';
 
@@ -15,7 +16,8 @@ export class CadastroFormComponent implements OnInit {
 
   constructor(
     private formBuilder: FormBuilder,
-    private usuarioService: UsuarioService
+    private usuarioService: UsuarioService,
+    private messagesService: MessagesService
   ) {
     this.formulario = this.formBuilder.group({
       nome: ['', [Validators.required, Validators.minLength(3)]],
@@ -29,6 +31,36 @@ export class CadastroFormComponent implements OnInit {
       cidade: ['', [Validators.required]],
       estado: ['', [Validators.required, Validators.maxLength(2)]],
     });
+  }
+  get nome() {
+    return this.formulario.get('nome')!;
+  }
+  get sobrenome() {
+    return this.formulario.get('sobrenome')!;
+  }
+  get cpf() {
+    return this.formulario.get('cpf')!;
+  }
+  get data_nascimento() {
+    return this.formulario.get('data_nascimento')!;
+  }
+  get cep() {
+    return this.formulario.get('cep')!;
+  }
+  get endereco() {
+    return this.formulario.get('endereco')!;
+  }
+  get numero() {
+    return this.formulario.get('numero')!;
+  }
+  get complemento() {
+    return this.formulario.get('complemento')!;
+  }
+  get cidade() {
+    return this.formulario.get('cidade')!;
+  }
+  get estado() {
+    return this.formulario.get('estado')!;
   }
 
   //data!: Usuario;
@@ -44,11 +76,14 @@ export class CadastroFormComponent implements OnInit {
 
   onSubmit() {
     if (this.formulario.invalid) {
-      alert('confira se preencheu os todos dados e de forma correta');
+      this.messagesService.add(
+        'Confira se preencheu todos os dados de forma correta'
+      );
       return;
     } else {
       this.usuarioService.salvar(this.formulario.value);
       this.formulario.reset();
+      this.messagesService.add('Dados cadastrados com sucesso');
     }
   }
 }

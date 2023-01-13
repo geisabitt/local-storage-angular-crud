@@ -30,7 +30,7 @@ export class UsuarioService {
     };
     localStorage.setItem(usuario.cpf.toString(), JSON.stringify(data));
 
-    return data && alert('Dados cadastrados com sucesso');
+    return data;
   }
 
   consultar(): Array<LerUsuario> {

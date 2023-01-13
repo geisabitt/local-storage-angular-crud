@@ -1,11 +1,16 @@
+<app-messages></app-messages>
 <mat-card class="container">
   <mat-toolbar>
     <span>Cadastro</span>
   </mat-toolbar>
-  <form [formGroup]="formulario">
+  <form [formGroup]="formulario" #formDir="ngForm">
     <mat-form-field class="largura-maxima">
       <label>Nome:</label>
       <input formControlName="nome" matInput />
+      <div *ngIf="nome.invalid && formDir.submitted" class="erroValidacao">
+        <p *ngIf="nome.errors?.['required']">O nome é obrigatório</p>
+        <p *ngIf="nome.errors?.['minlength']">O deve ter no mínimo 3 letras</p>
+      </div>
     </mat-form-field>
     <mat-form-field class="largura-maxima">
       <label>sobrenome:</label>
@@ -13,7 +18,7 @@
     </mat-form-field>
     <mat-form-field class="largura-maxima">
       <label>cpf:</label>
-      <input formControlName="cpf" matInput />
+      <input type="number" formControlName="cpf" matInput />
     </mat-form-field>
     <mat-form-field class="largura-maxima">
       <label>data_nascimento:</label>
@@ -21,7 +26,7 @@
     </mat-form-field>
     <mat-form-field class="largura-maxima">
       <label>cep:</label>
-      <input formControlName="cep" matInput />
+      <input type="number" formControlName="cep" matInput />
     </mat-form-field>
     <mat-form-field class="largura-maxima">
       <label>endereco:</label>
