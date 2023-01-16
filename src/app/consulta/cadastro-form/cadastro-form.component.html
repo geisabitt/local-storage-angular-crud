@@ -7,11 +7,8 @@
     <mat-form-field class="largura-maxima">
       <label>Nome:</label>
       <input formControlName="nome" matInput />
-      <div *ngIf="nome.invalid && formDir.submitted" class="erroValidacao">
-        <p *ngIf="nome.errors?.['required']">O nome é obrigatório</p>
-        <p *ngIf="nome.errors?.['minlength']">O deve ter no mínimo 3 letras</p>
-      </div>
     </mat-form-field>
+
     <mat-form-field class="largura-maxima">
       <label>sobrenome:</label>
       <input formControlName="sobrenome" matInput />
