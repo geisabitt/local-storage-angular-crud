@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
 import { LerUsuario } from '../model/lerUsuario';
@@ -7,7 +8,7 @@ import { Usuario } from '../model/usuario';
   providedIn: 'root',
 })
 export class UsuarioService {
-  constructor() {}
+  constructor(private http: HttpClient) {}
 
   salvar(usuario: Usuario) {
     const data = {

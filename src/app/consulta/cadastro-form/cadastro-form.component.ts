@@ -20,7 +20,7 @@ export class CadastroFormComponent implements OnInit {
     private messagesService: MessagesService
   ) {
     this.formulario = this.formBuilder.group({
-      nome: [null, [Validators.required, Validators.minLength(3)]],
+      nome: ['', [Validators.required, Validators.minLength(3)]],
       sobrenome: ['', [Validators.required, Validators.minLength(3)]],
       cpf: ['', [Validators.required, Validators.maxLength(11)]],
       data_nascimento: ['', Validators.required],

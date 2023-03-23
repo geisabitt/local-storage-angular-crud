@@ -6,11 +6,20 @@
   justify-content: right;
   margin: 20px 0;
 }
+.container-form{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content:center;
+}
 label{
   color: white;
+  display: block;
+}
+input{
+  width: 90%;
 }
 .largura-maxima{
-  width:100%;
+  width: 49%;
   margin: 10px auto;
 }
 mat-card{

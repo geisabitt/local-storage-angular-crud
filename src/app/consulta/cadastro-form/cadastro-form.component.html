@@ -3,48 +3,47 @@
   <mat-toolbar>
     <span>Cadastro</span>
   </mat-toolbar>
-  <form [formGroup]="formulario" #formDir="ngForm">
-    <mat-form-field class="largura-maxima">
+  <form class="container-form" [formGroup]="formulario" #formDir="ngForm">
+    <div class="largura-maxima">
       <label>Nome:</label>
-      <input formControlName="nome" matInput />
-    </mat-form-field>
-
-    <mat-form-field class="largura-maxima">
+      <input formControlName="nome" />
+    </div>
+    <div class="largura-maxima">
       <label>sobrenome:</label>
-      <input formControlName="sobrenome" matInput />
-    </mat-form-field>
-    <mat-form-field class="largura-maxima">
+      <input formControlName="sobrenome" />
+    </div>
+    <div class="largura-maxima">
       <label>cpf:</label>
-      <input type="number" formControlName="cpf" matInput />
-    </mat-form-field>
-    <mat-form-field class="largura-maxima">
+      <input type="number" max="99999999999" formControlName="cpf" />
+    </div>
+    <div type="date" class="largura-maxima">
       <label>data_nascimento:</label>
-      <input formControlName="data_nascimento" matInput />
-    </mat-form-field>
-    <mat-form-field class="largura-maxima">
+      <input type="date" max="9999-12-31" formControlName="data_nascimento" />
+    </div>
+    <div class="largura-maxima">
       <label>cep:</label>
-      <input type="number" formControlName="cep" matInput />
-    </mat-form-field>
-    <mat-form-field class="largura-maxima">
+      <input type="number" formControlName="cep" />
+    </div>
+    <div class="largura-maxima">
       <label>endereco:</label>
-      <input formControlName="endereco" matInput />
-    </mat-form-field>
-    <mat-form-field class="largura-maxima">
+      <input formControlName="endereco" />
+    </div>
+    <div class="largura-maxima">
       <label>numero:</label>
-      <input formControlName="numero" matInput />
-    </mat-form-field>
-    <mat-form-field class="largura-maxima">
+      <input formControlName="numero" />
+    </div>
+    <div class="largura-maxima">
       <label>complemento:</label>
-      <input formControlName="complemento" matInput />
-    </mat-form-field>
-    <mat-form-field class="largura-maxima">
+      <input formControlName="complemento" />
+    </div>
+    <div class="largura-maxima">
       <label>cidade:</label>
-      <input formControlName="cidade" matInput />
-    </mat-form-field>
-    <mat-form-field class="largura-maxima">
+      <input formControlName="cidade" />
+    </div>
+    <div class="largura-maxima">
       <label>estado:</label>
-      <input formControlName="estado" matInput />
-    </mat-form-field>
+      <input formControlName="estado" />
+    </div>
   </form>
   <mat-card-actions class="container-right">
     <button mat-raised-button color="primary" (click)="onSubmit()">
