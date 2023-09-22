@@ -47,7 +47,9 @@ export class CadastroFormComponent implements OnInit {
       this.usuarioService.salvar(this.formulario.value);
       this.formulario.reset();
       this.messagesService.add('Dados cadastrados com sucesso.');
-      this.router.navigate(['/']);
+      setTimeout(() => {
+        this.router.navigate(['/']);
+      }, 5000);
     }
   }
 }
