@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 import { MessagesService } from '../../messages/services/messages.service';
@@ -17,7 +18,8 @@ export class CadastroFormComponent implements OnInit {
   constructor(
     private formBuilder: FormBuilder,
     private usuarioService: UsuarioService,
-    private messagesService: MessagesService
+    private messagesService: MessagesService,
+    private router: Router
   ) {
     this.formulario = this.formBuilder.group({
       nome: ['', [Validators.required, Validators.minLength(3)]],
@@ -45,6 +47,7 @@ export class CadastroFormComponent implements OnInit {
       this.usuarioService.salvar(this.formulario.value);
       this.formulario.reset();
       this.messagesService.add('Dados cadastrados com sucesso.');
+      this.router.navigate(['/']);
     }
   }
 }
